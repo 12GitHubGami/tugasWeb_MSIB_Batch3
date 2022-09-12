@@ -1,0 +1,65 @@
+<script>
+   let pegawai = "Ridwan";
+   let jabatan = "Manager";
+   let status = "Menikah";
+
+   //if else
+    if(jabatan=="Manager"){
+        gapok=15000000;
+    } 
+    else if(jabatan=="Asisten Manager"){
+        gapok=10000000;
+    }
+    else if(jabatan=="Staff"){
+        gapok=5000000
+    }
+    else{
+        gapok=0;
+    }
+
+    //tunjangan
+    tunjangan_jabatan = gapok*0.15;
+    BPJS = 0.1 * gapok;
+    //ternary
+    let tunjangan_keluarga =(status=='Menikah') ? 0.2 * gapok :0;
+
+    //total gaji
+    total_gaji = gapok + tunjangan_jabatan + BPJS + tunjangan_keluarga;
+
+    document.write("<h3>Data Pegawai</h3>"+
+    "Nama Pegawai  : "+pegawai +
+    "<br/>Jabatan       : "+jabatan+
+    "<br/>Status        : "+ status +"<br/><br/>");
+
+    document.write("<table border='1' cellspacing='0' cellpadding='5' bgcolor='lightblue' width='20%'>"+
+                    "<thead>"+
+                        "<tr bgcolor='yellow'><th>Data Gaji</th>"+
+                            "<th>Jumlah</th></tr>"+
+                    "</thead>"+
+                    "<tbody>"+
+                        "<tr>"+
+                            "<td>Gaji Pokok</td>"+
+                            "<td align='right' width='50%'>"+ gapok +"</td>"+
+                        "</tr>"+
+                        "<tr>"+
+                            "<td>Tunjangan Jabatan</td>"+
+                            "<td align='right'>"+ tunjangan_jabatan +"</td>"+
+                        "</tr>"+
+                        "<tr>"+
+                            "<td>BPJS</td>"+
+                            "<td align='right'>"+ BPJS +"</td>"+
+                        "</tr>"+
+                        "<tr>"+
+                            "<td>Tunjangan Keluarga</td>"+
+                            "<td align='right'>"+ tunjangan_keluarga +"</td>"+
+                        "</tr>"+
+                    "</tbody>"+
+                    "<tfoot>"+
+                        "<tr bgcolor='orange'>"+
+                            "<th>Total Gaji</th>"+
+                            "<th align='right'>"+total_gaji+"</th>"+
+                        "</tr>"+
+                    "</tfoot>"+
+                "</table>");
+
+</script>
