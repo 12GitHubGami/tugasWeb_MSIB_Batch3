@@ -1,0 +1,63 @@
+
+<h3 align="center">Daftar Pegawai</h3>
+		<table align="center" cellpadding="10" width="80%">
+			<thead>
+				<tr bgcolor="tomato">
+					<th>No</th>
+					<th>Nama</th>
+					<th>Jabatan</th>
+					<th>Agama</th>
+					<th>Gaji Pokok</th>
+					<th>Tunjangan Jabatan</th>
+					<th>Tunjangan Kesehatan</th>
+					<th>Gaji Kotor</th>
+					<th>Zakat Profesi</th>
+					<th>Take Home Pay</th>
+				</tr>
+			</thead>
+			<tbody>
+                <script>
+                let no, warna;
+                for(no = 1; no <= 100; no++){
+                    warna = (no % 2 == 0) ? 'lightblue' :'yellow';
+                    agama = (no % 2 == 1) ? 'Muslim' : 'Non Muslim';
+
+                    if(no>=1 && no<=25)jabatan ="Manager";
+                    else if(no>25 && no<=50)jabatan="Asisten Manager";
+                    else if(no>50 && no<=75)jabatan="Supervisor";
+                    else if(no>75 && no<=100)jabatan="Staff";
+                    else jabatan="";
+                    
+                    let gapok=0;
+                    switch(jabatan){
+                        case "Manager":gapok =15000000;break;
+                        case "Asisten Manager":gapok = 10000000;break;
+                        case "Supervisor":gapok =7000000;break;
+                        case "Staff":gapok =4000000;break;
+                        default : gapok=0;
+                    }
+                    tunJabatan = gapok*0.2;
+                    tunKesehatan = gapok*0.1;
+                    gajiKotor = gapok+tunJabatan+tunKesehatan;
+                    
+                    let zakat=0;
+                    if(agama=='Muslim' && gajiKotor>=7000000) zakat=gajiKotor*0.025;
+                    else zakat = 0;
+                    takeHomePay = gajiKotor-zakat;
+
+                    document.write(`<tr bgcolor="${warna}">
+                        <td>${no}</td>
+                        <td>Pegawai ${no}</td>
+                        <td>${jabatan}</td>
+                        <td>${agama}</td>
+                        <td>Rp ${gapok}</td>
+                        <td>Rp ${tunJabatan}</td>
+                        <td>Rp ${tunKesehatan}</td>
+                        <td>Rp ${gajiKotor}</td>
+                        <td>Rp ${zakat}</td>
+                        <td>Rp ${takeHomePay}</td>
+                    </tr>`);
+                }    
+                </script>
+			</tbody>
+		</table>
