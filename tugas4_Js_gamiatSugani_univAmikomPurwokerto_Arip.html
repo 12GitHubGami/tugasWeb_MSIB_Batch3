@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurs Valuta Asing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+        <h2 align="center">Konversi Kurs</h2> <br>
+        <form action="" id="frm" class="container-sm " >
+            <div class="mb-3">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="nm_pembeli" id="nm_pembeli" placeholder="nama">
+                    <label for="nm_pembeli">Nama Pembeli</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="nm_barang" id="nm_barang" placeholder="nama">
+                    <label for="nm_barang">Nama Barang</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="harga" id="harga_barang" placeholder="Harga Barang">
+                    <label for="harga_barang">Harga Barang</label>
+                </div>
+                
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="jumlah" id="jumlah_barang" placeholder="Harga Barang">
+                    <label for="jumlah_barang">Jumlah</label>
+                </div>
+                
+                <label for="valas" class="form-label">Valuta Asing</label>
+                <select class="form-select" name="valas" id="kurs_valas" onchange="konversiKurs()">
+                    <option value="14999.20">-- USD --</option>
+                    <option value="10664.96">-- SGD --</option>
+                    <option value="15023.42">-- EUR --</option>
+                </select>     
+        </div>
+        </form>
+        <div class="col d-flex justify-content-center">
+            <div class="card" style="width: 35rem;">
+                <h5 align="center" >Data Pembelian</h5>
+                <div class="card-body">
+                    <p id="data">Pembeli : </p>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Nama Barang</th>
+                            <th scope="col">Harga Barang</th>
+                            <th scope="col">Jumlah</th>
+                            <th scope="col">Valuta Asing</th>
+                          </tr>
+                        </thead>
+                        <tbody id="isi">
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th colspan="2">Total Bayar :</th>
+                            <td colspan="2"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+        </div>
+        
+        <script>
+            function konversiKurs(){
+                pembeli=document.getElementById('frm').nm_pembeli.value;
+                nm_pembeli=`Pembeli : ${pembeli}`;
+                let nama=document.getElementById('frm').nm_barang.value;
+                let harga=document.getElementById('frm').harga.value;
+                let jumlah=document.getElementById('frm').jumlah.value;
+                let valas=document.getElementById('frm').valas.value;
+                let total=parseInt(harga) /parseFloat(valas)*jumlah;
+                
+                if(valas==15023.42) icon='€';
+                else if(valas==10664.96) icon='S$';
+                else if(valas==14999.20) icon='$';
+                else icon='';
+                
+                if(harga=='' || jumlah=='' || nama=='' || pembeli=='') alert('Silahkan Isi Data yang kosong');
+                else hasil = `
+                    <tr>
+                        <td>${nama}</td>
+                        <td>Rp. ${harga}</td>
+                        <td>${jumlah}</td>
+                        <td>Rp. ${valas}</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Total Bayar :</th>
+                        <td colspan="2">${icon} ${total}</td>
+                    </tr>
+                `;
+             
+
+                document.getElementById('isi').innerHTML= hasil;
+                document.getElementById('data').innerHTML = nm_pembeli;
+            }
+        </script>
+</body>
+</html>
