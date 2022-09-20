@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Gempa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container text-center">
+    <h2>Info Gempa Bumi</h2>
+    <div class="table-responsive">
+        <table  class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr class="table-info">
+                    <th>No</th>
+                    <th>Lokasi</th>
+                    <th>Skala</th>
+                    <th>Dampak</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider" id="info">
+            </tbody>
+        </table>
+    </div>
+    </div>
+    
+    
+
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    
+    <script>
+        let hasil = document.getElementById('info');
+        let no=1;
+        class Gempa{
+            constructor(lokasi,skala){
+                this.lokasi = lokasi;
+                this.skala = skala;
+            }
+            dampak(){
+                if(this.skala>=0 && this.skala <= 2) this.dampakGempa = 'Tidak terasa'; 
+                else if(this.skala> 2 && this.skala <= 4) this.dampakGempa = 'Bangunan retak - retak'; 
+                else if(this.skala> 4 && this.skala <= 6) this.dampakGempa = 'Bangunan roboh'; 
+                else this.dampakGempa = 'Bangunan roboh dan berpotensi tsunami';
+                
+                return this.dampakGempa;
+            }
+            infoGempa(){
+                hasil.innerHTML +=`
+                <tr>
+                    <td>${no++}</td>
+                    <td>${this.lokasi}</td>
+                    <td>${this.skala}</td>
+                    <td>${this.dampak()}</td>
+                </tr>`;
+            }
+    
+        }
+        //Membuat Object
+        g1 = new Gempa('Palembang', 2);
+        g2 = new Gempa('Banjarmasin', 5.5);
+        g3 = new Gempa('Makassar', 7.5);
+        g4 = new Gempa('Surabaya', 4.4);
+        g5 = new Gempa('Pangandaran', 3.9);
+        g6 = new Gempa('Surabaya', 1.9);
+        g7 = new Gempa('Cilacap', 3.6);
+        g8 = new Gempa('Lampung', 7.2);
+        g9 = new Gempa('Bali', 4.2);
+        g10 = new Gempa('Sulawesi', 3);
+    
+        //Cetak info
+        g1.infoGempa();
+        g2.infoGempa();
+        g3.infoGempa();
+        g4.infoGempa();
+        g5.infoGempa();
+        g6.infoGempa();
+        g7.infoGempa();
+        g8.infoGempa();
+        g9.infoGempa();
+        g10.infoGempa();
+        
+    </script>
+</body>
+</html>
