@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> 
+</head>
+<body>
+    <h1 align="center">Gambar dan Suara Hewan</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-4" >
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Hewan Unggas
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col">
+                                  <div id="list-example" class="list-group">
+                                    <a id="ayam" class="list-group-item list-group-item-action" href="#tampil">Ayam</a>
+                                    <a id="bebek" class="list-group-item list-group-item-action" href="#">Bebek</a>
+                                    <a id="angsa" class="list-group-item list-group-item-action" href="#">Angsa</a>
+                                    <a id="puyuh" class="list-group-item list-group-item-action" href="#">Burung Puyuh</a>
+                                    <a id="kalkun" class="list-group-item list-group-item-action" href="#">Ayam Kalkun</a>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Hewan Ternak
+                        </button>
+                      </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <div class="row">
+                            <div class="col">
+                              <div id="list-example" class="list-group">
+                                <a id="kambing" class="list-group-item list-group-item-action" href="#tampil">Kambing</a>
+                                <a id="sapi" class="list-group-item list-group-item-action" href="#">Sapi</a>
+                                <a id="domba" class="list-group-item list-group-item-action" href="#">Domba</a>
+                                <a id="kuda" class="list-group-item list-group-item-action" href="#">Kuda</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Hewan Buas
+                        </button>
+                      </h2>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <div class="row">
+                            <div class="col">
+                              <div id="list-example" class="list-group">
+                                <a id="singa" class="list-group-item list-group-item-action" href="#tampil">Singa</a>
+                                <a id="beruang" class="list-group-item list-group-item-action" href="#">Beruang</a>
+                                <a id="harimau" class="list-group-item list-group-item-action" href="#">Harimau</a>
+                                <a id="buaya" class="list-group-item list-group-item-action" href="#">Buaya</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-8">
+                <!-- body -->
+                <div class="container text-center">
+                    <div class="row justify-content-md-center">
+                      <div class="col col-lg-2">
+                      </div>
+                      <div class="col-md-auto" id="tampil" style="width: 30rem; height: 31rem;">
+                      </div>
+                      <div class="col col-lg-2">
+                        <div id="namaHewan"></div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+    </div>
+    
+    
+    
+
+    <script>
+        $( document ).ready(function() {
+          //Hewan Unggas
+            $('#ayam').click(function(){
+                $("#tampil").css({
+                    background : "url(image/ayam.png)"
+                });
+                $("<audio><audio/>").attr({
+                    'src': "audio/ayam.mp3",
+                    'volume':0.4,
+                    'autoplay':"autoplay"
+                }).appendTo("body");
+                if(audio.currentTime>2){
+                  audio.pause();
+                };
+            });
+            $('#bebek').click(function(){
+                $("#tampil").css({
+                    background : "url(image/bebek.png)"
+                });
+                $("<audio><audio/>").attr({
+                    'src': "audio/Bebek.mp3",
+                    'volume':0.4,
+                    'autoplay':"autoplay"
+                }).appendTo("body");
+            });
+            $('#angsa').click(function(){
+                $("#tampil").css({
+                    background : "url(image/angsa.png)"
+                });
+                $("<audio><audio/>").attr({
+                    'src': "audio/angsa.mp3",
+                    'volume':0.4,
+                    'autoplay':"autoplay"
+                }).appendTo("body");
+            });
+            $('#puyuh').click(function(){
+                $("#tampil").css({
+                    background : "url(image/burung-puyuh.png)"
+                });
+                $("<audio><audio/>").attr({
+                    'src': "audio/burung-puyuh.mp3",
+                    'volume':0.4,
+                    'autoplay':"autoplay"
+                }).appendTo("body");
+            });
+            $('#kalkun').click(function(){
+                $("#tampil").css({
+                    background : "url(image/ayam-kalkun.png)"
+                });
+                $("<audio><audio/>").attr({
+                    'src': "audio/ayam-kalkun.mp3",
+                    'volume':0.4,
+                    'autoplay':"autoplay"
+                }).appendTo("body");
+            });
+
+            //Hewan Ternak
+            $('#kambing').click(function(){
+                $("#tampil").css({
+                    background : "url(image/kambing.png)"
+                });
+                $("<audio><audio/>").attr({
+                    'src': "audio/kambing.mp3",
+                    'volume':0.4,
+                    'autoplay':"autoplay"
+                }).appendTo("body");
+            });
+            $('#sapi').click(function(){
+                $("#tampil").css({
+                    background : "url(image/sapi.png)"
+                });
+                $("<audio><audio/>").attr({
+                    'src': "audio/sapi.mp3",
+                    'volume':0.4,
+                    'autoplay':"autoplay"
+                }).appendTo("body");
+            });
+            $('#domba').click(function(){
+                $("#tampil").css({
+                    background : "url(image/domba.png)"
+                });
+                $("<audio><audio/>").attr({
+                    'src': "audio/domba.mp3",
+                    'volume':0.4,
+                    'autoplay':"autoplay"
+                }).appendTo("body");
+            });
+            $('#kuda').click(function(){
+                $("#tampil").css({
+                    background : "url(image/kuda.png)"
+                });
+                $("<audio><audio/>").attr({
+                    'src': "audio/kuda.mp3",
+                    'volume':0.4,
+                    'autoplay':"autoplay"
+                }).appendTo("body");
+            });
+
+            //Hewan Buas
+            $('#singa').click(function(){
+                $("#tampil").css({
+                    background : "url(image/singa.png)"
+                });
+                $("<audio><audio/>").attr({
+                    'src': "audio/singa.mp3",
+                    'volume':0.4,
+                    'autoplay':"autoplay"
+                }).appendTo("body");
+            });
+            $('#harimau').click(function(){
+                $("#tampil").css({
+                    background : "url(image/harimau.png)"
+                });
+                $("<audio><audio/>").attr({
+                    'src': "audio/harimau.mp3",
+                    'volume':0.4,
+                    'autoplay':"autoplay"
+                }).appendTo("body");
+            });
+            $('#buaya').click(function(){
+                $("#tampil").css({
+                    background : "url(image/buaya.png)"
+                });
+                $("<audio><audio/>").attr({
+                    'src': "audio/buaya.mp3",
+                    'volume':0.4,
+                    'autoplay':"autoplay"
+                }).appendTo("body");
+            });
+            $('#beruang').click(function(){
+                $("#tampil").css({
+                    background : "url(image/beruang.png)"
+                });
+                $("<audio><audio/>").attr({
+                    'src': "audio/beruang.mp3",
+                    'volume':0.4,
+                    'autoplay':"autoplay"
+                }).appendTo("body");
+            });
+
+        });
+
+    
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
